@@ -15,7 +15,7 @@ def get_words_from_file(file_name, encode):
     words = []
     with open(file_name, 'r', encoding=encode['encoding']) as f:
         for line in f:
-            new_words = line.strip().lower()
+            new_words = line.lower().split()
             words += new_words
     return words
 
@@ -34,7 +34,7 @@ def get_sorted_words_rating(words):
     set_words = set(words)
     for word in set_words:
         words_rating.append([word, words.count(word)])
-    words_rating = sorted(words_rating, key=lambda i: i[1])
+    words_rating = sorted(words_rating, key=lambda i: i[1], reverse=True)
     return words_rating
 
 def print_top10(words_rating, file_name):
