@@ -1,6 +1,3 @@
-
-
-
 import chardet
 from chardet.universaldetector import UniversalDetector
 
