@@ -38,24 +38,24 @@ def get_sorted_words_rating(words):
     return words_rating
 
 def print_top10(words_rating, file_name):
-    print('ТОП-10 слов файла новостей: {}', format(file_name))
+    if file_name == 'all files':
+        print('\nТОП-10 слов из всех файлов новостей:')
+    else:
+        print('\nТОП-10 слов из файла новостей {}:' .format(file_name))
     for i in range(10):
-        print('{}, {}, {}', format(i, words_rating[i], words_rating[i]))
-
-
-
-
-
-
+        print('№{} "{}" - {}' .format(i+1, words_rating[i][0], words_rating[i][1]))
 
 def home_work():
-    files = ["newsafr.txt"] #, "newscy.txt", "newsfr.txt", "newsit.txt"]
+    files = ["newsafr.txt", "newscy.txt", "newsfr.txt", "newsit.txt"]
+    all_words = []
     for file_name in files:
         encode = encode_file(file_name)
         words = get_words_from_file(file_name, encode)
         words = get_words_longer_6_char(words)
         words_rating = get_sorted_words_rating(words)
-        #print_top10(words_rating, file_name)
-        print(words_rating)
+        print_top10(words_rating, file_name)
+        all_words += words
+    all_words = get_sorted_words_rating(all_words)
+    print_top10(all_words, 'all files')
 
 home_work()
