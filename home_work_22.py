@@ -45,8 +45,7 @@ def print_top10(words_rating, file_name):
     for i in range(10):
         print('№{} "{}" - {}' .format(i+1, words_rating[i][0], words_rating[i][1]))
 
-def home_work():
-    files = ["newsafr.txt", "newscy.txt", "newsfr.txt", "newsit.txt"]
+def home_work(files):
     all_words = []
     for file_name in files:
         encode = encode_file(file_name)
@@ -58,4 +57,5 @@ def home_work():
     all_words = get_sorted_words_rating(all_words)
     print_top10(all_words, 'all files')
 
-home_work()
+files = ["newsafr.txt", "newscy.txt", "newsfr.txt", "newsit.txt"]
+home_work(files)
