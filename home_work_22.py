@@ -49,8 +49,7 @@ def home_work(files):
     all_words = []
     for file_name in files:
         encode = encode_file(file_name)
-        words = get_words_from_file(file_name, encode)
-        words = get_words_longer_6_char(words)
+        words = get_words_longer_6_char(get_words_from_file(file_name, encode))
         words_rating = get_sorted_words_rating(words)
         print_top10(words_rating, file_name)
         all_words += words
