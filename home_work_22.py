@@ -19,9 +19,6 @@ def get_words_from_file(file_name, encode):
             words += new_words
     return words
 
-def sort_by_value(key):
-    return
-
 def get_words_longer_6_char(words):
     words_longer_6 = []
     for word in words:
